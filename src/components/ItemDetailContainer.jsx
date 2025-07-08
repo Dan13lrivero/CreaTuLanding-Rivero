@@ -12,7 +12,7 @@ const ItemDetailContainer = ({ products }) => {
       setTimeout(() => {
         const found = products.find((p) => p.id === productId);
         resolve(found || null);
-      }, 500);
+      }, 3000);
     });
 
     fetchProduct.then((prod) => {
@@ -21,8 +21,8 @@ const ItemDetailContainer = ({ products }) => {
     });
   }, [productId, products]);
 
-  if (loading) return <p>Cargando producto...</p>;
-  if (!product) return <p>Producto no encontrado.</p>;
+  if (loading) return <p className="text-white text-center fs-1">Loading product...</p>;
+  if (!product) return <p className="text-white text-center fs-1">Product not found.</p>;
 
   return (
     <div className="item-detail text-white text-center d-flex flex-column align-items-center">
@@ -56,7 +56,7 @@ const ItemDetailContainer = ({ products }) => {
   <ItemCount
     stock={10}
     initial={1}
-    onAdd={(count) => console.log(`Agregaste ${count} unidades`)}
+    onAdd={(count) => console.log(`You added ${count} units`)}
   />
 </div>
 

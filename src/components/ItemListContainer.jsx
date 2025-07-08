@@ -16,7 +16,7 @@ const ItemListContainer = ({ greeting, products }) => {
         } else {
           resolve(products);
         }
-      }, 500);
+      }, 3000);
     });
 
     fetchProducts.then((res) => {
@@ -25,7 +25,7 @@ const ItemListContainer = ({ greeting, products }) => {
     });
   }, [categoryId, products]);
 
-  if (loading) return <p>Cargando productos...</p>;
+  if (loading) return <p className="text-white text-center fs-1">Loading products...</p>;
 
   return (
     <>
