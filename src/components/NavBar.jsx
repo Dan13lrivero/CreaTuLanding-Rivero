@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CartWidget from './CartWidget'; 
+import CartWidget from './CartWidget';
 
-const NavBar = () => {
+const NavBar = ({ categories }) => {
   return (
     <nav>
       <img className="d-block mx-auto logo" src="/CreaTuLanding-Rivero/img/logo.png" alt="logo" />
@@ -13,33 +13,30 @@ const NavBar = () => {
             <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/home.png" alt="home" />
           </Link>
         </li>
+
+        {categories.map(category => (
+          <li key={category}>
+            <Link to={`/category/${category}`}>
+              <img
+                className="d-block mx-auto menu-icon"
+                src={`/CreaTuLanding-Rivero/img/${category}-logo.png`}
+                alt={category}
+              />
+            </Link>
+          </li>
+        ))}
+
         <li>
-          <Link to="/category/metallica">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/metallica-logo.png" alt="metallica" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/category/slayer">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/slayer-logo.png" alt="slayer" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/category/sepultura">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/sepultura-logo.png" alt="sepultura" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/category/megadeth">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/megadeth-logo.png" alt="megadeth" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/contact.png" alt="contact" />
+          <Link to="*">
+            <img
+              className="d-block mx-auto menu-icon"
+              src="/CreaTuLanding-Rivero/img/contact.png"
+              alt="contact"
+            />
           </Link>
         </li>
       </ul>
-      <CartWidget /> 
+      <CartWidget />
     </nav>
   );
 };
