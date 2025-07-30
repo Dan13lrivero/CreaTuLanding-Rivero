@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
+import { useContext } from 'react';
+import { CartContext } from '../providers/CartProvider';
 
 const NavBar = ({ categories }) => {
+  const result = useContext(CartContext); 
   return (
     <nav>
       <img className="d-block mx-auto logo" src="/CreaTuLanding-Rivero/img/logo.png" alt="logo" />
@@ -35,8 +38,14 @@ const NavBar = ({ categories }) => {
             />
           </Link>
         </li>
+        <li>
+          <Link to="/cart">
+            <CartWidget />
+            {result.cantidad}
+          </Link>
+        </li>
       </ul>
-      <CartWidget />
+      
     </nav>
   );
 };

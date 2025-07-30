@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import NotFound from "./components/NotFound";
+import { Cart } from "./components/Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -67,7 +68,8 @@ const App = () => {
           path="/item/:itemId"
           element={<ItemDetailContainer products={products} />}
         />
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/cart" element={ <Cart /> } />
       </Routes>
     </BrowserRouter>
   );

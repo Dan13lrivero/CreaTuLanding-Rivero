@@ -26,9 +26,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           +
         </button>
       </div>
-      <button onClick={handleAdd} style={{ marginTop: "10px" }}>
-        Agregar al carrito
-      </button>
     </div>
   );
 };

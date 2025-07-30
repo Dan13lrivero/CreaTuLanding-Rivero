@@ -1,7 +1,16 @@
 import React from 'react';
 import ItemCount from './ItemCount'; 
+import { useContext } from 'react';
+import { CartContext } from '../providers/CartProvider';
+import { useParams } from "react-router-dom";
 
-const ItemDetail = ({ product, onAdd }) => {
+export const ItemDetail = ({ product, onAdd }) => {
+  const result = useParams()
+  const result2 = useContext(CartContext)
+
+  const handleClick = () => {
+    result2.setCantidad(2)
+  }
   return (
     <div className="item-detail text-white text-center d-flex flex-column align-items-center">
       <h2>{product.title}</h2>
@@ -29,6 +38,9 @@ const ItemDetail = ({ product, onAdd }) => {
       </ul>
 
       <ItemCount stock={10} initial={1} onAdd={onAdd} />
+      <button onClick={handleClick}>
+        Add to Cart
+      </button>
     </div>
   );
 };
