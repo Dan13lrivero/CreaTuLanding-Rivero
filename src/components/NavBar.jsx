@@ -29,7 +29,7 @@ const NavBar = ({ categories }) => {
           </li>
         ))}
 
-        <li>
+       {/*  <li>
           <Link to="*">
             <img
               className="d-block mx-auto menu-icon"
@@ -37,11 +37,11 @@ const NavBar = ({ categories }) => {
               alt="contact"
             />
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/cart">
             <CartWidget />
-            {result.cantidad}
+            
           </Link>
         </li>
       </ul>

@@ -16,7 +16,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", marginTop: "1rem" }}>
       <div>
         <button onClick={decrement} disabled={count <= 1}>
           -
@@ -26,6 +26,21 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           +
         </button>
       </div>
+
+      <button
+        onClick={handleAdd}
+        style={{
+          marginTop: "10px",
+          padding: "5px 15px",
+          backgroundColor: "black",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+        }}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };
