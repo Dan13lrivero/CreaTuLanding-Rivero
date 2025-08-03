@@ -4,16 +4,17 @@ import CartWidget from './CartWidget';
 import { useContext } from 'react';
 import { CartContext } from '../providers/CartProvider';
 
+
 const NavBar = ({ categories }) => {
   const result = useContext(CartContext); 
   return (
     <nav>
-      <img className="d-block mx-auto logo" src="/CreaTuLanding-Rivero/img/logo.png" alt="logo" />
+      <img className="d-block mx-auto logo" src="/img/logo.png" alt="logo" />
       <h1 className="text-white text-center fs-5">(Altar of Sacrifice)</h1>
       <ul className="d-flex flex-wrap justify-content-center list-unstyled gap-5 text-white">
         <li>
           <Link to="/">
-            <img className="d-block mx-auto menu-icon" src="/CreaTuLanding-Rivero/img/home.png" alt="home" />
+            <img className="d-block mx-auto menu-icon" src="/img/home.png" alt="home" />
           </Link>
         </li>
 
@@ -22,22 +23,12 @@ const NavBar = ({ categories }) => {
             <Link to={`/category/${category}`}>
               <img
                 className="d-block mx-auto menu-icon"
-                src={`/CreaTuLanding-Rivero/img/${category}-logo.png`}
+                src={`/img/${category}-logo.png`}
                 alt={category}
               />
             </Link>
           </li>
         ))}
-
-       {/*  <li>
-          <Link to="*">
-            <img
-              className="d-block mx-auto menu-icon"
-              src="/CreaTuLanding-Rivero/img/contact.png"
-              alt="contact"
-            />
-          </Link>
-        </li> */}
         <li>
           <Link to="/cart">
             <CartWidget />

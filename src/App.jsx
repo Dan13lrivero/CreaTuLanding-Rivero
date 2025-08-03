@@ -51,7 +51,7 @@ const App = () => {
               greeting={
                 <img
                   className="d-block mx-auto greeting"
-                  src="/CreaTuLanding-Rivero/img/greeting.png"
+                  src="/img/greeting.png"
                   alt="greeting"
                 />
               }
@@ -66,7 +66,7 @@ const App = () => {
               greeting={
                 <img
                   className="d-block mx-auto greeting"
-                  src="/CreaTuLanding-Rivero/img/greeting.png"
+                  src="/img/greeting.png"
                   alt="greeting"
                 />
               }
