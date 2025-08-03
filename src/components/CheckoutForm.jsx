@@ -25,14 +25,14 @@ export function CheckoutForm({ setMensaje }) {
     }
 
     try {
-      await addDoc(collection(db, "ordenes"), {
+      const docRef = await addDoc(collection(db, "ordenes"), {
         cliente: formData,
         carrito,
         total: precioTotal,
         fecha: new Date()
       });
 
-      setMensaje("Purchase successful, we will contact you shortly.");
+      setMensaje(`Purchase successful! Order ID: ${docRef.id}`);
       setFormData({ nombre: "", email: "" });
       clearCart();
     } catch (error) {

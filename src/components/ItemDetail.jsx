@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ItemCount from './ItemCount'; 
 import { CartContext } from '../providers/CartProvider';
+import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({ product }) => {
   const { addToCart } = useContext(CartContext);
+  const [added, setAdded] = useState(false); 
 
   const handleAdd = (count) => {
     addToCart(product, count);
+    setAdded(true); 
   };
 
   return (
@@ -35,7 +38,12 @@ export const ItemDetail = ({ product }) => {
         ))}
       </ul>
 
-      <ItemCount stock={10} initial={1} onAdd={handleAdd} />
+      
+      {added ? (
+        <Link to="/cart" className="btn btn-success mt-3">Finish Purchase</Link>
+      ) : (
+        <ItemCount stock={10} initial={1} onAdd={handleAdd} />
+      )}
     </div>
   );
 };
