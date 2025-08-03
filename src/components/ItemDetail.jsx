@@ -17,7 +17,7 @@ export const ItemDetail = ({ product }) => {
       <h2>{product.title}</h2>
       <h3>{product.band}</h3>
       <img
-        src={`/CreaTuLanding-Rivero/img/${product.image}`}
+        src={`/img/${product.image}`}
         alt={product.title}
         style={{ maxWidth: "300px" }}
         className="mb-3"

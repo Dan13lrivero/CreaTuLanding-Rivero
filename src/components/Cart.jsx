@@ -3,7 +3,7 @@ import { CartContext } from "../providers/CartProvider";
 import { CheckoutForm } from "./CheckoutForm";
 
 export function Cart() {
-  const { carrito, precioTotal } = useContext(CartContext);
+  const { carrito, precioTotal, clearCart } = useContext(CartContext);
   const [mensaje, setMensaje] = useState("");
 
   const compraExitosa = mensaje.includes("Purchase successful");
@@ -35,10 +35,17 @@ export function Cart() {
               </ul>
 
               <h4 className="text-end">Total: ${precioTotal}</h4>
+
+              {!compraExitosa && (
+                <div className="d-flex justify-content-end gap-2 mt-3">
+                  <button className="btn btn-danger" onClick={clearCart}>
+                    Clean cart
+                  </button>
+                </div>
+              )}
             </>
           )}
 
-          
           {!compraExitosa && <CheckoutForm setMensaje={setMensaje} />}
         </>
       )}
